@@ -9,21 +9,21 @@ const config: Config = {
   tagline: 'Learning Physical AI and Humanoid Robotics for the future of robotics and AI',
   favicon: 'img/favicon.ico',
 
-  // Important for GitHub Pages
+  // Important for Vercel deployment
   trailingSlash: false,
 
   future: {
     v4: true,
   },
 
-  // ✅ GITHUB PAGES (Shezi1233)
-  url: 'https://Shezi1233.github.io',
-  baseUrl: '/Physical-AI-Humanoid-Robotics-Textbook/',
+  // ✅ VERCEL DEPLOYMENT - Updated with your actual live URL
+  url: 'https://physical-ai-humanoid-robotics-textb-theta-lovat.vercel.app',
+  baseUrl: '/',  // Root deployment ke liye '/' hi rakhna hai
 
-  // GitHub pages deployment config
-  organizationName: 'Shezi1233',
-  projectName: 'Physical-AI-Humanoid-Robotics-Textbook',
-  deploymentBranch: 'gh-pages',
+  // GitHub Pages wale configs comment out kar diye kyunki ab Vercel use kar rahe ho
+  // organizationName: 'Shezi1233',
+  // projectName: 'Physical-AI-Humanoid-Robotics-Textbook',
+  // deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
