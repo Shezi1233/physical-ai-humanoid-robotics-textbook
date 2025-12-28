@@ -1,0 +1,124 @@
+.bookNavigation {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #f8f9fa;
+}
+
+.moduleInfo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.moduleInfo h4 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 1.2em;
+}
+
+.moduleInfo p {
+  margin: 0;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.navigationControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.navButton {
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  display: inline-block;
+  transition: all 0.2s;
+  min-width: 100px;
+  text-align: center;
+}
+
+.navButton.prev {
+  background-color: #3498db;
+  color: white;
+}
+
+.navButton.prev:hover:not(.disabled) {
+  background-color: #2980b9;
+}
+
+.navButton.next {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.navButton.next:hover:not(.disabled) {
+  background-color: #27ae60;
+}
+
+.navButton.disabled {
+  background-color: #bdc3c7;
+  color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+.chapterProgress {
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.currentModule {
+  display: block;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 4px;
+}
+
+.currentChapter {
+  display: block;
+  font-size: 0.9em;
+  color: #7f8c8d;
+}
+
+.moduleNavigation h5 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #2c3e50;
+}
+
+.moduleNavigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.moduleNavigation li {
+  margin-bottom: 8px;
+}
+
+.moduleNavigation a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.moduleNavigation a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navigationControls {
+    flex-direction: column;
+  }
+
+  .chapterProgress {
+    order: -1;
+    margin-bottom: 15px;
+  }
+}

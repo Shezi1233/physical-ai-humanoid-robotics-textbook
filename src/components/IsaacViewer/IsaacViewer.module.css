@@ -1,0 +1,74 @@
+.isaacViewer {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: #f9f9f9;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.header h3 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+}
+
+.description {
+  margin: 0;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.viewerContainer {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.viewerPlaceholder {
+  padding: 24px;
+  text-align: center;
+  background-color: #fff;
+  color: #7f8c8d;
+}
+
+.controls {
+  padding: 12px;
+  background-color: #f0f0f0;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.controlBtn {
+  padding: 8px 16px;
+  border: 1px solid #e74c3c;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.controlBtn:hover {
+  background-color: #c0392b;
+}
+
+.infoPanel {
+  background-color: #fcebea;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.infoPanel h4 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.infoPanel ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
