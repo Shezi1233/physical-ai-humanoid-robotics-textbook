@@ -18,7 +18,7 @@ const config: Config = {
 
   // ✅ VERCEL DEPLOYMENT - Updated with your actual live URL
   url: 'https://physical-ai-humanoid-robotics-textb-theta-lovat.vercel.app',
-  baseUrl: 'https://shezi1233.github.io/physical-ai-humanoid-robotics-textbook/',  // Root deployment ke liye '/' hi rakhna hai
+  baseUrl: '/',  // Root deployment ke liye '/' hi rakhna hai
 
   // GitHub Pages wale configs comment out kar diye kyunki ab Vercel use kar rahe ho
   // organizationName: 'Shezi1233',
