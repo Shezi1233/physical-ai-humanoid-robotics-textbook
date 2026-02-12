@@ -1,8 +1,4 @@
-// Configuration file for runtime environment variables
-// This allows you to customize the backend URL without rebuilding
+// Runtime configuration — loaded before React via docusaurus.config.ts scripts[]
+// Change this URL to point at your deployed backend
 
-window.BACKEND_URL = window.BACKEND_URL || 'http://127.0.0.1:8000';
-
-// For production deployment, you can override this by creating a custom config.js
-// Example for production:
-// window.BACKEND_URL = 'https://your-backend-url.com';
+window.BACKEND_URL = 'https://shezi1344-physical-ai-chatbot.hf.space';

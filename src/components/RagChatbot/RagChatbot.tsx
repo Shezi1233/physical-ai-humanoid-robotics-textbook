@@ -28,24 +28,31 @@ interface ChatResponse {
   };
 }
 
+const PRODUCTION_BACKEND = 'https://shezi1344-physical-ai-chatbot.hf.space';
+
 const getBackendUrl = () => {
   if (typeof window !== 'undefined') {
-    return (window as any).BACKEND_URL || 'http://127.0.0.1:8000';
+    return (window as any).BACKEND_URL || PRODUCTION_BACKEND;
   }
-  return 'http://127.0.0.1:8000';
+  return PRODUCTION_BACKEND;
 };
 
+const STORAGE_KEY = 'physical-ai-session-id';
+
 const generateSessionId = () => {
-  if (typeof window === 'undefined' || typeof sessionStorage === 'undefined') {
+  if (typeof window === 'undefined') {
     return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
   }
-  const storageKey = 'physical-ai-session-id';
-  let sessionId = sessionStorage.getItem(storageKey);
-  if (!sessionId) {
-    sessionId = `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    sessionStorage.setItem(storageKey, sessionId);
+  try {
+    let sessionId = localStorage.getItem(STORAGE_KEY);
+    if (!sessionId) {
+      sessionId = `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      localStorage.setItem(STORAGE_KEY, sessionId);
+    }
+    return sessionId;
+  } catch {
+    return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
   }
-  return sessionId;
 };
 
 const WELCOME_MESSAGE: Message = {
@@ -217,11 +224,15 @@ const RagChatbot: React.FC = () => {
     setInputValue('');
     setIsLoading(true);
 
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+
     try {
       const response = await fetch(`${backendUrl}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: query.trim(), session_id: sessionId }),
+        signal: controller.signal,
       });
 
       if (!response.ok) {
@@ -233,6 +244,7 @@ const RagChatbot: React.FC = () => {
 
       if (data.session_id && data.session_id !== sessionId) {
         setSessionId(data.session_id);
+        try { localStorage.setItem(STORAGE_KEY, data.session_id); } catch {}
       }
 
       setMessages(prev => [
@@ -246,19 +258,25 @@ const RagChatbot: React.FC = () => {
         },
       ]);
     } catch (error) {
-      const errorMsg = error instanceof Error ? error.message : 'Connection failed';
+      const isTimeout = error instanceof DOMException && error.name === 'AbortError';
+      const errorMsg = isTimeout
+        ? 'Request timed out. The server may be waking up — please try again.'
+        : error instanceof Error ? error.message : 'Connection failed';
       setToast(errorMsg);
       setMessages(prev => [
         ...prev,
         {
           id: (Date.now() + 1).toString(),
-          content: 'Something went wrong. Please check that the backend is running and try again.',
+          content: isTimeout
+            ? 'The request timed out. Hugging Face Spaces can take a moment to wake up — please try again shortly.'
+            : 'Something went wrong. Please check that the backend is running and try again.',
           role: 'assistant',
           timestamp: new Date(),
           isError: true,
         },
       ]);
     } finally {
+      clearTimeout(timeout);
       setIsLoading(false);
     }
   };
