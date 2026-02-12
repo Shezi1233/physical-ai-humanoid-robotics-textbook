@@ -3,6 +3,168 @@
 
 export const moduleData = [
   {
+    moduleId: 0,
+    moduleName: "Introduction to Physical AI",
+    chapters: [
+      {
+        chapterId: 1,
+        title: "Chapter 1 - What is Physical AI?",
+        description: "Understanding Physical AI, embodied intelligence, and the sense-think-act loop",
+        weeks: [1, 2],
+        content: `# Chapter 1: What is Physical AI?
+
+## Learning Objectives
+- Understand the concept of Physical AI and how it differs from traditional software AI
+- Learn how AI systems interact with the physical world through sensors and actuators
+- Explore the key components of an embodied intelligence system
+- Recognize real-world applications of Physical AI across industries
+
+## From Digital AI to Physical AI
+Traditional AI lives in the digital world — it processes text, images, and data on servers. **Physical AI** takes a revolutionary step further: it brings intelligence into the real world through robotic bodies that can see, touch, move, and interact with their environment.
+
+Physical AI is the convergence of:
+- **Artificial Intelligence** — perception, reasoning, decision-making
+- **Robotics** — mechanical systems, actuators, sensors
+- **Control Systems** — real-time feedback loops for stable movement
+- **Computer Vision** — understanding the 3D world from visual input
+
+## The Embodied Intelligence Stack
+A Physical AI system operates through a layered architecture:
+- **Layer 5: Cognitive Layer** — LLMs, task planning, reasoning
+- **Layer 4: Behavior Layer** — navigation, manipulation, interaction
+- **Layer 3: Perception Layer** — object detection, SLAM, scene understanding
+- **Layer 2: Communication Layer** — ROS 2 topics, services, actions
+- **Layer 1: Hardware Layer** — sensors, actuators, compute platform
+
+## The Sense-Think-Act Loop
+Every Physical AI system operates on a fundamental cycle:
+1. **SENSE** — Cameras, LiDAR, IMU, and touch sensors read the environment
+2. **THINK** — AI models process sensor data, plan actions, make decisions
+3. **ACT** — Motors and actuators execute planned movements in the physical world
+
+This loop runs continuously at high frequency (10-1000 Hz), allowing real-time reaction to environmental changes.
+
+## Why Humanoid Robots?
+Humanoid robots are the ultimate expression of Physical AI because:
+- Our world is designed for the human form (doors, stairs, tools)
+- Humans intuitively understand humanoid body language
+- A human-shaped robot can potentially do anything a human can do
+- Humanoid hands can use existing human tools without modification
+
+## Summary
+Physical AI brings intelligence from the digital world into physical reality through robotic embodiment. The Embodied Intelligence Stack, the Sense-Think-Act loop, and sim-to-real transfer are the foundational concepts that power modern humanoid robots.`
+      },
+      {
+        chapterId: 2,
+        title: "Chapter 2 - The Humanoid Robotics Landscape",
+        description: "Survey of humanoid robot platforms, technical challenges, and the software stack",
+        weeks: [1, 2],
+        content: `# Chapter 2: The Humanoid Robotics Landscape
+
+## Learning Objectives
+- Survey the current state of humanoid robotics in industry and research
+- Understand the key technical challenges in building humanoid robots
+- Compare major humanoid robot platforms and their capabilities
+- Learn about the software and AI frameworks that power modern humanoid robots
+
+## Major Humanoid Robot Platforms
+The field of humanoid robotics has accelerated dramatically. Key platforms include:
+
+- **Boston Dynamics Atlas** — Most dynamic and agile humanoid; capable of running, jumping, parkour
+- **Tesla Optimus** — Designed for mass production and affordability; end-to-end neural networks
+- **Figure 01/02** — LLM-integrated humanoid for warehouse and industrial tasks
+- **Agility Robotics Digit** — First humanoid deployed commercially in warehouses
+- **NVIDIA Project GR00T** — Foundation model platform for training humanoid AI
+
+## Technical Challenges
+Building a humanoid robot is one of the hardest engineering problems:
+
+1. **Bipedal Locomotion** — Maintaining balance while walking, dynamic stability
+2. **Dexterous Manipulation** — Human hands have 27 degrees of freedom
+3. **Real-Time Perception** — Processing sensor data in under 100ms
+4. **Power and Efficiency** — Battery life limited to 1-4 hours
+5. **Safety Around Humans** — Force limiting, predictable behavior, emergency stops
+
+## The Software Stack
+Modern humanoid robots are powered by a layered software stack:
+- **Application Layer** — Task scripts, mission planning
+- **AI/ML Layer** — VLA models, LLM reasoning, RL policies
+- **Navigation & Manipulation** — Nav2, MoveIt, behavior trees
+- **Middleware (ROS 2)** — Nodes, topics, services, actions
+- **Simulation Layer** — Gazebo, NVIDIA Isaac Sim, Unity
+- **Hardware Abstraction** — Motor drivers, sensor interfaces
+
+## Key Frameworks
+| Framework | Purpose |
+|---|---|
+| ROS 2 | Robot middleware & communication |
+| NVIDIA Isaac | AI training & simulation |
+| Gazebo | Physics simulation |
+| MoveIt 2 | Motion planning |
+| Nav2 | Autonomous navigation |
+| PyTorch | Neural network training |
+
+## Summary
+The humanoid robotics field has moved from research to commercial deployment. Foundation models (VLA, LLMs) are transforming how robots learn and reason, and this course covers the complete stack from ROS 2 through to autonomous humanoid AI.`
+      },
+      {
+        chapterId: 3,
+        title: "Chapter 3 - Course Roadmap & Dev Environment",
+        description: "13-week course structure, development environment setup with ROS 2 and Gazebo",
+        weeks: [1, 2],
+        content: `# Chapter 3: Course Roadmap & Development Environment
+
+## Learning Objectives
+- Understand the 13-week course structure and what each module covers
+- Set up a complete development environment for robotics AI
+- Install and verify ROS 2, Gazebo, and Python tools
+- Run your first simple robot simulation
+
+## Course Roadmap: 13 Weeks to Physical AI
+The course is structured as a progressive journey:
+
+| Module | Weeks | Focus |
+|---|---|---|
+| Module 0 | 1-2 | Introduction & Setup |
+| Module 1 | 3-5 | ROS 2 Basics |
+| Module 2 | 6-7 | Simulation (Gazebo & Unity) |
+| Module 3 | 8-10 | AI & Navigation (NVIDIA Isaac) |
+| Module 4 | 11-13 | Autonomous AI (VLA & LLMs) |
+
+## Development Environment
+You'll need:
+- **Ubuntu 22.04 LTS** (native or Windows WSL2)
+- **ROS 2 Humble Hawksbill** (LTS until 2027)
+- **Python 3.10+**
+- **Gazebo** (Fortress or Garden)
+- **VS Code** with ROS extensions
+
+## Installation Steps
+Three options available:
+1. **Ubuntu Native** — Most straightforward path
+2. **Windows + WSL2** — Full Linux environment on Windows
+3. **Docker** — Fully reproducible environment
+
+## Verifying Your Installation
+Three verification tests:
+1. **ROS 2 Talker/Listener** — Run demo_nodes_cpp talker and listener
+2. **Gazebo Launch** — Open Gazebo with an empty world
+3. **Python ROS 2 Test** — Create and run a simple Python node
+
+## ROS 2 Workspace Setup
+\`\`\`bash
+mkdir -p ~/physical_ai_ws/src
+cd ~/physical_ai_ws
+colcon build
+source install/setup.bash
+\`\`\`
+
+## Summary
+Your development environment with Ubuntu 22.04, ROS 2 Humble, Gazebo, and Python 3.10+ is the foundation for all course work. The 13-week curriculum progressively builds from basics to complete autonomous humanoid AI systems.`
+      }
+    ]
+  },
+  {
     moduleId: 1,
     moduleName: "ROS 2 Basics",
     chapters: [
@@ -563,7 +725,7 @@ export function getTopicsForWeekRange(startWeek: number, endWeek: number) {
   for (let week = startWeek; week <= endWeek; week++) {
     const weekTopics = getTopicsForWeek(week);
     weekTopics.forEach(topic => {
-      if (!topics.some(t => t.chapterId === topic.chapterId)) {
+      if (!topics.some(t => t.moduleId === topic.moduleId && t.chapterId === topic.chapterId)) {
         topics.push(topic);
       }
     });

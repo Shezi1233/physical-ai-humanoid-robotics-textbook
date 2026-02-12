@@ -33,6 +33,13 @@ const config: Config = {
     locales: ['en'],
   },
 
+  scripts: [
+    {
+      src: '/config.js',
+      async: false,
+    },
+  ],
+
   presets: [
     [
       'classic',

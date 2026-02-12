@@ -28,7 +28,7 @@ The complete pipeline includes:
 5. **Manipulation**: Object interaction and task execution
 6. **Monitoring**: Execution monitoring and failure recovery
 
-## Complete Voice ’ Plan ’ Navigation ’ Vision ’ Manipulation Pipeline
+## Complete Voice Â’ Plan Â’ Navigation Â’ Vision Â’ Manipulation Pipeline
 
 ### End-to-End Pipeline Implementation
 
